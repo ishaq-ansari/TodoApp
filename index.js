@@ -16,11 +16,11 @@ app.use(express.json());
 MY_SECRET_KEY = "1612837107";
 
 app.get("/users", (req, res) => {
-  // GET all data
   db.find({})
-    .then((docs) => res.send(docs))
-    .catch((error) => res.send({ error }));
+    .then((docs) => res.json(docs))  // Ensure sending JSON response
+    .catch((error) => res.json({ error }));
 });
+
 
 //Register
 app.post("/users", (req, res) => {
